@@ -1,7 +1,7 @@
 //VH_RADIUS 30 //回転半径30cm
 //sqrt(2)*VH_RADIUS = 42.4264068712cm
-//const long COLLISION_THRES = 42;
-const long COLLISION_THRES = 100;
+const long COLLISION_THRES = 42;
+//const long COLLISION_THRES = 100;
 
 class ObstacleDetector
 {

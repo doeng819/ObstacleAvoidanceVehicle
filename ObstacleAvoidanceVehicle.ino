@@ -3,12 +3,22 @@
 #include "VehicleControl.h"
 #include "ObstacleDetector.h"
 
+/*
 //signals for VehicleControl object
 #define E1 10 // Enable Pin for motor 1
 #define E2 11 // Enable Pin for motor 2
 #define I1 8  // Control pin 1 for motor 1
 #define I2 9  // Control pin 2 for motor 1
 #define I3 12 // Control pin 1 for motor 2
+#define I4 13 // Control pin 2 for motor 2
+*/
+
+//signals for VehicleControl object
+#define E1 8 // Enable Pin for motor 1
+#define E2 12 // Enable Pin for motor 2
+#define I1 10  // Control pin 1 for motor 1 (pwm)
+#define I2 9  // Control pin 2 for motor 1
+#define I3 11 // Control pin 1 for motor 2 (pwm)
 #define I4 13 // Control pin 2 for motor 2
 
 //signals for object detector object
@@ -30,17 +40,17 @@ Servo obsdetservo;
 VehicleControl vehicle(E1, E2, I1, I2, I3, I4);
 ObstacleDetector obsdetector(I5, obsdetservo);
 
+///*
+
 void setup()
 {
-  obsdetservo.attach(O1);// attaches the servo to the servo object
+//  obsdetservo.attach(O1);// attaches the servo to the servo object //ここを有効にするとpwmで速度を落とした場合、片輪しか回転しなくなる
   Serial.begin(9600);
 }
 
 void loop()
 {
-
-  //test_vehicle();
-
+/*  
   int CurPos;
   int CurPosArraySize = sizeof(CurPosArray) / sizeof(CurPosArray[0]);
 
@@ -104,6 +114,15 @@ void loop()
     } //end sweep servo from right to left
   } // end if found obstacle ahead at 90 degrees
 
+  //vehicle.MoveVehicle(FORWARD, 0);
+*/
   vehicle.MoveVehicle(FORWARD, 0);
+  delay(3000);
+//  vehicle.MoveVehicle(RIGHT, 45);
+//  vehicle.MoveVehicle(LEFT, 45);
+//  vehicle.MoveVehicle(REVERSE, 0);
+//  delay(2000);
 
 }// end loop
+
+//*/

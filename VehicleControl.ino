@@ -30,9 +30,11 @@ void VehicleControl::MoveVehicle(enum Direction dir, int degree)
   {
     case FORWARD:
       Serial.println("MoveVehicle : FORWARD");
-      digitalWrite(_mot1in1, HIGH); //control pin1 for motor1 forward
+//     digitalWrite(_mot1in1, HIGH); //control pin1 for motor1 forward
+      analogWrite(_mot1in1, 120); //control pin1 for motor1 forward 
       digitalWrite(_mot1in2, LOW);  //control pin2 for motor1 forward
-      digitalWrite(_mot2in1, HIGH); //control pin1 for motor2 forward
+//      digitalWrite(_mot2in1, HIGH); //control pin1 for motor2 forward
+      analogWrite(_mot2in1, 120); //control pin1 for motor2 forward
       digitalWrite(_mot2in2, LOW);  //control pin2 for motor2 forward
       break;
     case REVERSE:
@@ -102,9 +104,9 @@ void VehicleControl::MoveVehicle(enum Direction dir, int degree)
           delay(ROT45*4);
           break;
       }
-      digitalWrite(_mot1ena, LOW); //disable motor1
-      digitalWrite(_mot2ena, LOW); //disable motor2
-      delay(200);
+//      digitalWrite(_mot1ena, LOW); //disable motor1
+//      digitalWrite(_mot2ena, LOW); //disable motor2
+//      delay(200);
       break;
   }
 
